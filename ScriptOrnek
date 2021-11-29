@@ -1,0 +1,18 @@
+#!/bin/bash
+
+fstr=$(tput bold)
+fend=$(tput sgr0)
+
+echo "${fstr}Hostname :${fend}" $(hostname)
+echo "${fstr}Internal IP address :${fend}" $(hostname -I)
+
+echo "${fstr}System Version :${fend}" $(lsb_release -ds)
+
+echo "${fstr}Kernel Version :${fend}" $(uname -sr)
+
+echo "${fstr}OpenSSH Version:${fend}" $(dpkg -l | grep openssh-server | awk '{print $3}')
+
+echo "${fstr}Routing TAble : ${fend}"
+echo  $(netstat -rn)
+
+
